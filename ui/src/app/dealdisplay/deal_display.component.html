@@ -1,0 +1,38 @@
+
+<div class="row">
+    <!--<button (click)="myModal.open()">open my modal</button>-->
+    <modal class = 'myModal' #myModal>
+        <modal-header>
+            <h1>Fields List</h1>
+        </modal-header>
+        <modal-content  *ngIf = 'modalData'>
+           <table class = 'table'>
+               <tbody>
+            <tr *ngFor='let key of modalData | keys'><td><b>{{key.key}}</b><td><td>{{key.value}}</td></tr>
+               </tbody>
+           </table>
+        </modal-content>
+        <modal-footer>
+            <button class="btn btn-primary" (click)="myModal.close()">close</button>
+        </modal-footer>
+    </modal>
+</div>
+
+<div  id='tablediv' class = 'table-responsive' *ngIf = 'loanData'>
+    <table id = 'displayTbl' class = 'table'>
+        <thead>
+            <tr>
+            <th>Loan Id</th>
+            <th>Fields Count</th>
+            <th>View Fields</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = 'let loan of loanData'>
+                <td>{{loan.loanId}}</td><td>{{modalCount}}</td>
+                <td><a class="view-link" href (click) = "view($event,loan,myModal)">View</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div></div>

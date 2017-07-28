@@ -1,0 +1,22 @@
+<div class = "actual">
+        <nav class = 'navbar navbar-default'>
+        <div class = 'container-fluid'>
+        <a class = 'navbar-brand'></a>
+        <ul class = 'nav navbar-nav'>
+        <li><a [routerLink] = "['/welcome']"> Home </a> </li>
+        </ul>
+        </div>
+        </nav>
+        
+        <div class = 'container container-padding'>
+        <ul class = "nav navbar-nav">
+        <li><a class = "deal" [routerLink] = "['/dealsetup']"> Deal Setup </a> </li>
+        <li><a [routerLink] = "['/dealdisplay']"> Deal Display </a> </li>
+        </ul>
+        </div>
+  
+        
+        </div>
+        <div class = 'container'>
+       <router-outlet></router-outlet>
+        </div>
