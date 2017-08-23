@@ -1,0 +1,37 @@
+
+<h1>Dashboard</h1>
+<div class="'panel panel-primary'">
+	<div #dataContainer></div>
+        <div class='table-responsive'>
+            <table class='table table-bordered '
+                   *ngIf='userDetails && userDetails.length'>
+                <thead>
+                    <tr>
+                    	<th>Deal ID</th>
+                        <th>Review Type</th>
+                        <th>Task Name</th>
+                        <th>Priority</th>
+						 <th>SLA</th>
+                        <th>Status</th>
+                        <th>Claim</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let detail of userDetails '>
+                        <td>{{ detail.dealId}}</td>
+                        <td>{{ detail.reviewType}}</td>
+                        <td>{{ detail.taskName }}</td>
+                        <td>{{ detail.priority }}</td>
+                        <td>{{detail.sla}} </td>
+						<td>{{detail.status}} </td>
+                        <td ><button type="button" class="btn btn-primary" (click)='toggleClaim(detail)'[ngClass]="{disabled : detail.status=='In Progress'|| detail.status=='Completed' ? true : false}" >Claim</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+       <div style="position: absolute; top: 0; right:0; width: 100px; text-align:right;">       
+            <label>
+                <button type="button" class="btn btn-primary" (click)='logout()'>Logout</button>
+            </label>
+    </div>
+    </div>
